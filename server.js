@@ -5,7 +5,7 @@ const cors = require("cors");
 const { connection } = require("./config/database");
 const dotenv = require("dotenv");
 //Global Middlewares
-dotenv.config({ path: "./config/.env" });
+dotenv.config();
 app.use(express.json());
 connection();
 app.use(express.urlencoded({ extended: false }));

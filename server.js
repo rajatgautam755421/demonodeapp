@@ -3,20 +3,22 @@ const app = express();
 const logger = require("morgan");
 const cors = require("cors");
 const { connection } = require("./config/database");
-
+const dotenv = require("dotenv");
 //Global Middlewares
+dotenv.config({ path: "./config/.env" });
 app.use(express.json());
 connection();
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(logger("dev"));
-// app.use(express.static("public"));
 
 //Importing Routes
 
 const uploadRoute = require("./routes/upload.route");
 const likeRoute = require("./routes/like.route");
 const commentRoute = require("./routes/comment.route");
+
+//Implementing Routes
 
 app.use("/api/v1", uploadRoute);
 app.use("/api/v1/like", likeRoute);

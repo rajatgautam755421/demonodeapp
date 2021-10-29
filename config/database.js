@@ -2,7 +2,7 @@ const { connect } = require("mongoose");
 //Connection to mongoDB through mongoose
 const connection = () =>
   connect(
-    "mongodb+srv://rajat:rajat12345@cluster0.m6swy.mongodb.net/upload",
+    process.env.DB_CONNECTION,
 
     (error) => {
       if (!error) {
